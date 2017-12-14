@@ -72,8 +72,15 @@
     <artifactId>mysql-connector-java</artifactId>
     <version>6.0.5</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
 
+<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 
+<dependency>
+    <groupId>javax.servlet.jsp.jstl</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
   <!-- https://mvnrepository.com/artifact/junit/junit -->
 <dependency>
     <groupId>junit</groupId>
@@ -84,5 +91,32 @@
   </dependencies>
   <build>
     <finalName>First</finalName>
+     <plugins> 
+      <plugin> 
+          <groupId>org.apache.tomcat.maven</groupId>  
+         <artifactId>tomcat7-maven-plugin</artifactId>  
+        
+         <configuration> 
+           <port>8080</port>  
+           <path>/First</path>  
+          <uriEncoding>UTF-8</uriEncoding>  
+           <finalName>First</finalName>  
+           <server>tomcat7</server> 
+            <source>1.7</source>  
+          <target>1.7</target>  
+                <encoding>UTF-8</encoding>  
+             
+         </configuration>  
+         <executions> 
+           <!-- 打包成功后即开始运行web容器 -->  
+           <execution> 
+            <phase>package</phase>  
+             <goals> 
+               <goal>run</goal> 
+             </goals> 
+           </execution> 
+         </executions> 
+       </plugin> 
+     </plugins> 
   </build>
 </project>
